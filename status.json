@@ -1,5 +1,10 @@
 {
   "status": "active",
   "message": "",
-  "licenses": {}
+  "licenses": {
+    "A4M3-X533-CVZU": {
+      "status": "active",
+      "label": "My Mac test"
+    }
+  }
 }
