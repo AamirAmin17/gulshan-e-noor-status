@@ -1,1 +1,6 @@
-{"status":"active","message":""}
+{
+  "status": "active",
+  "message": "",
+  "licenses": {
+  }
+}
