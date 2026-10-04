@@ -3,9 +3,8 @@
   "message": "",
   "licenses": {
     "ZZZZ-ZZZZ-ZZZZ": {
-      "status": "disabled",
-      "label": "Tool test",
-      "message": "Testing a message"
+      "status": "active",
+      "label": "Tool test"
     }
   }
 }
