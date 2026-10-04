@@ -1,26 +1,53 @@
-# Gulshan-e-Noor Maintenance: on/off switch
+# Gulshan-e-Noor Maintenance: owner control file
 
-The maintenance software reads `status.json` whenever the society computer has internet
-(at start-up, every 15 minutes, and when the window is used).
+The software reads `status.json` when the computer has internet: at start-up, every 15
+minutes, and as soon as the internet comes back. Between those times it works offline.
 
-## Lock the software (from your phone or home)
+Edit on github.com (phone or computer): open `status.json`, tap the pencil, change it,
+tap **Commit changes**. Changes reach the computer within about 15 minutes of it being online.
 
-1. Open `status.json` in this repository and tap the pencil (Edit).
-2. Change `"active"` to `"disabled"`. Optionally write a message, for example:
-   `{"status":"disabled","message":"Please contact Aamir."}`
-3. Tap **Commit changes**.
+## Approve a new installation
 
-The society computer locks the next time it is online (normally within 15 minutes).
-It stays locked even if the internet is then disconnected. No data is deleted.
+A new installation shows an **Installation code** (like `UKQH-B9VS-VWCP`) and cannot be
+used until its code is in the `licenses` list. When someone sends you a code, add a line:
 
-## Unlock
+```json
+{
+  "status": "active",
+  "message": "",
+  "licenses": {
+    "UKQH-B9VS-VWCP": "active"
+  }
+}
+```
 
-Edit `status.json` back to `{"status":"active","message":""}` and commit.
-The computer unlocks the next time it is online.
+Each further installation is one more line (put a comma after the previous line):
+
+```json
+    "UKQH-B9VS-VWCP": "active",
+    "7PQ2-9XKM-3TRB": "active"
+```
+
+A note to remember which is which is optional:
+`"UKQH-B9VS-VWCP": { "status": "active", "label": "Gulshan-e-Noor office PC" }`
+
+## Block one installation
+
+Change its `"active"` to `"disabled"`. Only that computer locks.
+
+## Lock or unlock everyone
+
+Top line: `"status": "disabled"` locks every installation; `"status": "active"` unlocks.
+Optional message shown on the lock screen: `"message": "Please contact Aamir."`
+
+## Turn approval off
+
+Delete the whole `"licenses": { ... }` part. Then every copy works without approval
+(the lock/unlock line still applies).
 
 ## Notes
 
-- Only the word `active` or `disabled` matters. If the file is missing or unreadable,
-  the software keeps its last state, so a typo here never breaks daily work.
-- Raw link used by the software:
-  `https://raw.githubusercontent.com/AamirAmin17/gulshan-e-noor-status/main/status.json`
+- Nothing is ever deleted on the computer. Locking only stops use until unlocked.
+- If the file has a typo, approved computers keep working as before; only new
+  installations wait.
+- A copy moved to a different computer gets a new code and needs approval again.
