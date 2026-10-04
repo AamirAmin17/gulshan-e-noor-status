@@ -3,9 +3,8 @@
   "message": "",
   "licenses": {
     "A4M3-X533-CVZU": {
-      "status": "disabled",
-      "label": "My Mac test",
-      "message": "Please contact Aamir."
+      "status": "active",
+      "label": "Please contact Aamir."
     }
   }
 }
