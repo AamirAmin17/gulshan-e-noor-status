@@ -1,4 +1,4 @@
-# Gulshan-e-Noor Maintenance: owner control file
+# Society Khata: owner control file
 
 The software reads `status.json` when the computer has internet: at start-up, every 15
 minutes, and as soon as the internet comes back. Between those times it works offline.
@@ -29,11 +29,12 @@ Each further installation is one more line (put a comma after the previous line)
 ```
 
 A note to remember which is which is optional:
-`"UKQH-B9VS-VWCP": { "status": "active", "label": "Gulshan-e-Noor office PC" }`
+`"UKQH-B9VS-VWCP": { "status": "active", "label": "Gulshan-e-Noor Society" }`
 
-## Block one installation
+## Block one installation (one society)
 
-Change its `"active"` to `"disabled"`. Only that computer locks.
+Change its `"active"` to `"disabled"`. Only that computer locks. Optionally give it its own
+lock message: `"7PQ2-9XKM-3TRB": { "status": "disabled", "label": "Platinum Society", "message": "Please contact Aamir." }`
 
 ## Lock or unlock everyone
 
